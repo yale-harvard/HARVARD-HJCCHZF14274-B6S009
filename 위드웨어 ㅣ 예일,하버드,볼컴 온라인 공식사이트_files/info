@@ -1,3 +1,0 @@
-    naver.NaverPayButton.jsonp.callback(
-{"STATE":true,"talk":"N","PRMT":[{"link":"https://new-m.pay.naver.com/paymoney/bankbook/woori/open?from=wr0020","sloganContent":"결제 최대혜택 10% 추가적립","title":"이벤트"},{"link":"https://campaign.nbilly.pay.naver.com/npay_subrelay_2607","sloganContent":"Npay 정기결제 할 때마다 3천원 무제한 적립 받으세요!","title":"이벤트"}],"TYPE":"A_1_2_Y","KEY":"932A756F-F41E-4610-A52A-181B77BE0E4D","CART":true}
-    );
