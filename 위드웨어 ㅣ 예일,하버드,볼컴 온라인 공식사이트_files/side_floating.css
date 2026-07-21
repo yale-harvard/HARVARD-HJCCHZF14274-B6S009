@@ -1,0 +1,19 @@
+@charset "utf-8";
+
+/*========================================================================
+플로팅
+========================================================================*/
+.side-floating { display:none; position:fixed; bottom:80px; left:50%; margin-left:507px;  opacity:1; z-index:119; }
+.side-floating a { display:block; width:clamp(40px,10.6vw,51px); height:clamp(40px,10.6vw,51px); margin:10px 0 0; border-radius:50%; overflow:hidden; box-sizing:border-box; }
+.side-floating a img { width:100%; }
+.side-floating.end-stop { position:absolute; bottom:40px; margin-left:260px; }
+body:has(.side-floating.end-stop) #container { overflow:visible; }
+
+@media all and (max-width:990px) {
+	.side-floating { margin-left:260px; }
+}
+
+@media all and (max-width:500px) {
+	.side-floating { left:auto; right:20px; bottom:60px; margin:0; }
+	.side-floating.end-stop { position:absolute; bottom:40px; }
+}

@@ -1,0 +1,188 @@
+@charset "utf-8";
+/* CSS Document */
+/**
+ * custom css 입니다. 추가적인 css 는 여기에 작성을 해주세요.
+ */
+
+/* PC 기획전 상품 리스트 제목 + 여백 제거 */
+body.body-event-sale.pc .goods_list_tit {
+    display: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* =========================================================
+   메인 브랜드 아이콘: 5개 1행 + 원형 + 기존 링크 '무조건' 클릭되게
+   ========================================================= */
+
+/* 한 줄 배치 */
+.main-hot-keyword .hot-keyword-cont{
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+/* 텍스트 로고(dt) 숨김 */
+.main-hot-keyword .hot-keyword-cont dl > dt{
+  display: none !important;
+}
+
+/* dl = 칸 */
+.main-hot-keyword .hot-keyword-cont dl{
+  flex: 1 1 0 !important;
+  display: flex !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
+
+/* 기본값 제거 */
+.main-hot-keyword .hot-keyword-cont dd,
+.main-hot-keyword .hot-keyword-cont ul,
+.main-hot-keyword .hot-keyword-cont li{
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+  border: 0 !important;
+}
+
+/* 아이콘 컨테이너 */
+.main-hot-keyword .hot-keyword-cont li{
+  position: relative !important;   /* z-index 기준 */
+}
+
+/* ✅ (중요) li 안의 모든 요소는 클릭을 막지 못하게 */
+.main-hot-keyword .hot-keyword-cont li *{
+  pointer-events: none !important;
+}
+
+/* ✅ (중요) 오직 a만 클릭을 받게 */
+.main-hot-keyword .hot-keyword-cont li a{
+  pointer-events: auto !important;
+
+  display: block !important;
+  width: 75px !important;
+  height: 75px !important;
+  border-radius: 50% !important;
+  overflow: hidden !important;
+  background: #fff !important;
+
+  position: relative !important;
+  z-index: 9999 !important;        /* 무조건 최상단 */
+}
+
+/* 이미지 맞추기 */
+.main-hot-keyword .hot-keyword-cont li a img{
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;    /* 로고면 contain으로 바꿔도 됨 */
+  display: block !important;
+}
+
+/* 브랜드 아이콘 원 테두리 */
+.main-hot-keyword .hot-keyword-cont dd li a{
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.12);
+  background: #fff;
+}
+
+.main-hot-keyword .hot-keyword-cont dd li a{
+  transition: all .2s ease;
+}
+
+.main-hot-keyword .hot-keyword-cont dd li a:hover{
+  border-color: #000;
+  transform: scale(1.05);
+}
+
+/* =========================================================
+   메인페이지 전체 공백 밀도 조정
+   ========================================================= */
+
+/* 메인 전체 래퍼 */
+#main{
+  padding-top: 0 !important;
+}
+
+/* 메인 섹션 공통 */
+#main .main-wrap > div[class^="main-box"]{
+  margin-top: 24px !important;
+  margin-bottom: 24px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* ==============================
+   모바일 브랜드: dl 5개를 가로 스와이프
+   ============================== */
+@media (max-width: 767px) {
+
+  /* 5개 아이템이 들어있는 컨테이너 자체를 스크롤 */
+  #main .main-hot-keyword .hot-keyword-cont{
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 14px !important;
+    padding: 0 16px 12px !important;
+  }
+
+  /* 각 아이템(dl)이 줄바꿈/찡김 없이 한 덩어리로 */
+  #main .main-hot-keyword .hot-keyword-cont > dl{
+    flex: 0 0 auto !important;
+    margin: 0 !important;
+  }
+
+  /* dl 안에서 불필요한 dt가 공간 만들면 숨김(대부분 필요 없음) */
+  #main .main-hot-keyword .hot-keyword-cont > dl > dt{
+    display: none !important;
+  }
+
+  /* 스크롤바 숨김 */
+  #main .main-hot-keyword .hot-keyword-cont::-webkit-scrollbar{ display:none; }
+  #main .main-hot-keyword .hot-keyword-cont{ scrollbar-width:none; -ms-overflow-style:none; }
+}
+
+/* =====================================
+   메인 비주얼 배너 블루 그라데이션 완전 제거
+   (링크 오버레이 / shadow / before/after 전부 컷)
+===================================== */
+
+/* 링크 오버레이 가상요소 */
+.main-visual a::before,
+.main-visual a::after {
+    content: none !important;
+    display: none !important;
+}
+
+/* swiper shadow 계열 (모바일에서 자주 원인) */
+.main-visual .swiper-slide-shadow-left,
+.main-visual .swiper-slide-shadow-right,
+.main-visual .swiper-slide-shadow-top,
+.main-visual .swiper-slide-shadow-bottom {
+    display: none !important;
+    opacity: 0 !important;
+}
+
+/* visual-title 자체에 깔린 그라데이션 */
+.main-visual .visual-title,
+.main-visual .visual-title::before,
+.main-visual .visual-title::after {
+    background: none !important;
+}
+
+/* 혹시 남아있는 오버레이 div까지 전부 제거 */
+.main-visual [class*="overlay"],
+.main-visual [class*="shadow"] {
+    background: none !important;
+}
+
+/* 메인박스2 숨김 */
+.main-box2 {
+    display: none !important;
+}
